@@ -36,8 +36,8 @@ public class Score_activity extends AppCompatActivity {
 
         //Creating a Progress Bar
         final ProgressDialog dialog = new ProgressDialog(Score_activity.this);
-        dialog.setTitle("Loading...");
-        dialog.setMessage("Please wait.");
+        dialog.setTitle("Calculating your total score");
+        dialog.setMessage("Please wait...");
         dialog.setIndeterminate(true);
         dialog.setCancelable(false);
         dialog.show();
