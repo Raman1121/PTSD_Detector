@@ -15,9 +15,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Post Traumatic Stress Disorder Detecter"
+            android:text="Detect PTSD"
+            android:gravity="center"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
+            android:textSize="30dp"
             android:textStyle="bold" />
 
         <TextView
@@ -28,6 +30,7 @@
             android:paddingRight="@dimen/desc_padding"
             android:text=""
             android:textAlignment="center"
+            android:gravity="center"
             android:textColor="@android:color/white"
             android:textSize="@dimen/slide_desc" />
 
