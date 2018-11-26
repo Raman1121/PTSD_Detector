@@ -34,28 +34,22 @@ public class Score_activity extends AppCompatActivity {
         lineChart = findViewById(R.id.line_chart);
         pieChart = findViewById(R.id.pie_chart);
 
-        //Creating a Progress Bar
-        final ProgressDialog dialog = new ProgressDialog(Score_activity.this);
-        dialog.setTitle("Calculating your total score");
-        dialog.setMessage("Please wait...");
-        dialog.setIndeterminate(true);
-        dialog.setCancelable(false);
-        dialog.show();
-
-        long delayInMillis = 3000;
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                dialog.dismiss();
-            }
-        }, delayInMillis);
-
-        //Receiving value from the previous activity
-        Bundle bundle = getIntent().getExtras();
-        int score = bundle.getInt("SCORE");
-
-        Toast.makeText(this, ""+ score, Toast.LENGTH_SHORT).show();
+//        //Creating a Progress Bar
+//        final ProgressDialog dialog = new ProgressDialog(Score_activity.this);
+//        dialog.setTitle("Calculating your total score");
+//        dialog.setMessage("Please wait...");
+//        dialog.setIndeterminate(true);
+//        dialog.setCancelable(false);
+//        dialog.show();
+//
+//        long delayInMillis = 2000;
+//        Timer timer = new Timer();
+//        timer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                dialog.dismiss();
+//            }
+//        }, delayInMillis);
 
         //Setting up the Line chart
         lineChart();
@@ -98,14 +92,20 @@ public class Score_activity extends AppCompatActivity {
         pieChart.setDrawHoleEnabled(true);
         pieChart.setHoleColor(Color.WHITE);
         pieChart.setTransparentCircleRadius(61f);
+        pieChart.setCenterTextColor(Color.BLACK);
 
         ArrayList<PieEntry> pieEntries = new ArrayList<>();
-        pieEntries.add(new PieEntry(4f, "IT"));
-        pieEntries.add(new PieEntry(6f, "Big Data"));
-        pieEntries.add(new PieEntry(4.6f, "Cloud Services"));
-        pieEntries.add(new PieEntry(5f, "Hardware"));
-        pieEntries.add(new PieEntry(74f, "Networking"));
-        pieEntries.add(new PieEntry(10f, "Analytics"));
+        pieEntries.add(new PieEntry(4f, "Question 1"));
+        pieEntries.add(new PieEntry(6f, "Question 2"));
+        pieEntries.add(new PieEntry(4.6f, "Question 3"));
+        pieEntries.add(new PieEntry(5f, "Question 4"));
+        pieEntries.add(new PieEntry(6f, "Question 5"));
+        pieEntries.add(new PieEntry(10f, "Question 6"));
+        pieEntries.add(new PieEntry(4f, "Question 7"));
+        pieEntries.add(new PieEntry(12f, "Question 8"));
+        pieEntries.add(new PieEntry(5f, "Question 9"));
+        pieEntries.add(new PieEntry(7f, "Question 10"));
+
 
         PieDataSet dataSet = new PieDataSet(pieEntries, "Revenue by Services");
         dataSet.setSliceSpace(3f);

@@ -3,6 +3,7 @@ package com.example.sargam.ptsddetector;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,7 +24,10 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
@@ -36,10 +40,6 @@ public class DisplayActivity2 extends AppCompatActivity {
     ArrayList<String> selected=new ArrayList<String>();
     static int score=0;
     Button Submit;
-
-
-
-
 
     @Override
     protected void onStart() {
@@ -62,12 +62,11 @@ public class DisplayActivity2 extends AppCompatActivity {
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String filename = "myfile";
 
                 FileOutputStream outputStream;
 
                 try {
-                    FileOutputStream fileout=openFileOutput("mytextfile.txt", MODE_PRIVATE);
+                    FileOutputStream fileout=openFileOutput("mytextfile.txt", MODE_APPEND);
                     OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
                     outputWriter.write(selected.get(0));
                     outputWriter.close();
@@ -80,24 +79,21 @@ public class DisplayActivity2 extends AppCompatActivity {
                         outputStream.write(s.getBytes());
                     }
                     outputStream.close();*/
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 String temp = getApplicationContext().getFilesDir().getAbsolutePath();
                 Toast.makeText(DisplayActivity2.this, temp, Toast.LENGTH_SHORT).show();
 
-                Intent i = new Intent(DisplayActivity2.this, Score_activity.class);
+                Intent i = new Intent(DisplayActivity2.this, result_activity.class);
 
                 Bundle bundle = new Bundle();
                 bundle.putInt("SCORE", score);
                 i.putExtras(bundle);
                 startActivity(i);
-                //Toast.makeText(DisplayActivity2.this, ""+score, Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
 
         signout=findViewById(R.id.signOut);
 
@@ -114,7 +110,6 @@ public class DisplayActivity2 extends AppCompatActivity {
                     Intent i=new Intent(DisplayActivity2.this,MainActivity.class);
                     startActivity(i);
                 }
-
             }
         };
 
@@ -122,9 +117,6 @@ public class DisplayActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-
-
-
             }
         });
 
@@ -231,19 +223,6 @@ public class DisplayActivity2 extends AppCompatActivity {
                     {
                         score=score+5;
                     }
-
-                    // Toast.makeText(DisplayActivity2.this, "" + score, Toast.LENGTH_SHORT).show();
-                    /*OutputStreamWriter outputStreamWriter = null;
-                    try {
-                        outputStreamWriter = new OutputStreamWriter(mContext.openFileOutput("saved_responses.txt", Context.MODE_PRIVATE));
-                        outputStreamWriter.write(text);
-                        outputStreamWriter.close();
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }*/
-
                 }
             });
 
@@ -252,5 +231,10 @@ public class DisplayActivity2 extends AppCompatActivity {
             return convertView;
 
         }
+    }
+
+    public void uploadFile(File uploadFile){
+        Uri file = Uri.fromFile(uploadFile);
+
     }
 }
