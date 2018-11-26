@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PTSDDetector.iml" filepath="$PROJECT_DIR$/PTSDDetector.iml" />
+      <module fileurl="file://C:\Users\Sargam\Desktop\Github\PTSD_Detector\PTSDDetector_Sargam\PTSDDetector\PTSDDetector.iml" filepath="C:\Users\Sargam\Desktop\Github\PTSD_Detector\PTSDDetector_Sargam\PTSDDetector\PTSDDetector.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Sargam\Desktop\Github\PTSD_Detector\PTSDDetector_Sargam\PTSDDetector\app\app.iml" filepath="C:\Users\Sargam\Desktop\Github\PTSD_Detector\PTSDDetector_Sargam\PTSDDetector\app\app.iml" />
     </modules>
   </component>
 </project>

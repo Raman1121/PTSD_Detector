@@ -71,7 +71,8 @@ public class result_activity extends AppCompatActivity {
                     @Override
                     public void run() {
                         // task success! show TICK icon in ProSwipeButton
-                        Toast.makeText(result_activity.this, "OPEN RECOMMENDATIONS", Toast.LENGTH_SHORT).show();
+                        Intent i=new Intent(result_activity.this,SuggestActivity.class);
+                        startActivity(i);
                         proSwipeBtn2.showResultIcon(true); // false if task failed
                     }
                 }, 1000);

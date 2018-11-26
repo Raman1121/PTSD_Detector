@@ -18,7 +18,9 @@
             android:layout_height="wrap_content"
             android:text="Answer a few questions"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="30dp"
             android:textStyle="bold" />
 
         <TextView
