@@ -45,7 +45,7 @@ public class DisplayActivity2 extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
-
+        score = 0;
     }
 
 
@@ -83,8 +83,6 @@ public class DisplayActivity2 extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                String temp = getApplicationContext().getFilesDir().getAbsolutePath();
-                Toast.makeText(DisplayActivity2.this, temp, Toast.LENGTH_SHORT).show();
 
                 Intent i = new Intent(DisplayActivity2.this, result_activity.class);
 

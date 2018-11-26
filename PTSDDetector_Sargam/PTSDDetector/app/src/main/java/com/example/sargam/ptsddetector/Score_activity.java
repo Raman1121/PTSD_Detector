@@ -6,8 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -23,43 +27,26 @@ import java.util.TimerTask;
 
 public class Score_activity extends AppCompatActivity {
 
-    public LineChart lineChart;
+    //public LineChart lineChart;
     public PieChart pieChart;
+    private BarChart barchart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
 
-        lineChart = findViewById(R.id.line_chart);
+        //lineChart = findViewById(R.id.line_chart);
         pieChart = findViewById(R.id.pie_chart);
+        barchart = findViewById(R.id.bar_chart);
 
-//        //Creating a Progress Bar
-//        final ProgressDialog dialog = new ProgressDialog(Score_activity.this);
-//        dialog.setTitle("Calculating your total score");
-//        dialog.setMessage("Please wait...");
-//        dialog.setIndeterminate(true);
-//        dialog.setCancelable(false);
-//        dialog.show();
-//
-//        long delayInMillis = 2000;
-//        Timer timer = new Timer();
-//        timer.schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//                dialog.dismiss();
-//            }
-//        }, delayInMillis);
-
-        //Setting up the Line chart
-        lineChart();
-        //Setting up the Pie chart
+        barchart();
         piechart();
     }
 
     public void lineChart(){
-        lineChart.setDragEnabled(true);
-        lineChart.setScaleEnabled(true);
+        //lineChart.setDragEnabled(true);
+        //lineChart.setScaleEnabled(true);
 
         ArrayList<Entry> yValues = new ArrayList<>();
         yValues.add(new Entry(0,60f));
@@ -80,7 +67,35 @@ public class Score_activity extends AppCompatActivity {
         dataSets.add(set1);
 
         LineData data1 = new LineData(dataSets);
-        lineChart.setData(data1);
+        //lineChart.setData(data1);
+    }
+
+    public void barchart(){
+        //Setting up the BAR CHART
+        barchart.setDrawBarShadow(false);
+        barchart.setDrawValueAboveBar(true);
+        barchart.setMaxVisibleValueCount(50);
+        barchart.setDrawGridBackground(true);
+
+        ArrayList<BarEntry> barEntries = new ArrayList<>();
+        barEntries.add(new BarEntry(1, 4f));
+        barEntries.add(new BarEntry(2, 6f));
+        barEntries.add(new BarEntry(3, 4.6f));
+        barEntries.add(new BarEntry(4, 5f));
+        barEntries.add(new BarEntry(5, 6f));
+        barEntries.add(new BarEntry(6, 10f));
+        barEntries.add(new BarEntry(7, 4f));
+        barEntries.add(new BarEntry(8, 12f));
+        barEntries.add(new BarEntry(9, 5f));
+        barEntries.add(new BarEntry(10, 7f));
+
+        BarDataSet barDataSet = new BarDataSet(barEntries, "");
+        barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+
+        BarData data = new BarData(barDataSet);
+        data.setBarWidth(0.9f);
+
+        barchart.setData(data);
     }
 
     public void piechart(){

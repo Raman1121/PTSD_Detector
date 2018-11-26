@@ -14,9 +14,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome Screen 3"
+            android:text="Get Recommendations"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/slide_title"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView
@@ -25,7 +25,7 @@
             android:layout_marginTop="20dp"
             android:paddingLeft="@dimen/desc_padding"
             android:paddingRight="@dimen/desc_padding"
-            android:text="Something on Screen 3"
+            android:text="Get in touch with psychiatrists near you."
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="@dimen/slide_desc" />

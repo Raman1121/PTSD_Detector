@@ -7,6 +7,7 @@
     tools:context=".result_activity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -14,20 +15,33 @@
         <TextView
             android:id="@+id/tv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:fontFamily= "monospace"
+            android:layout_marginTop="200dp"
+            android:layout_marginBottom="80dp"/>
 
-        <io.rmiri.buttonloading.ButtonLoading
-            android:id="@+id/bttnLoading"
+        <in.shadowfax.proswipebutton.ProSwipeButton
+            android:id="@+id/awesome_btn"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            app:BL_backgroundColor="#80ffffff"
-            app:BL_circleColor="#00AFEF"
-            app:BL_circleColorSecond="#8000AFEF"
-            app:BL_enable="true"
-            app:BL_stateShow="normal"
-            app:BL_text="Submit"
-            app:BL_textColor="#FFFFFF"
-            app:BL_textSize="14sp" />
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:text_size="25sp"
+            app:bg_color="@android:color/holo_blue_dark"
+            app:btn_text="See Analytics" />
+
+        <in.shadowfax.proswipebutton.ProSwipeButton
+            android:id="@+id/awesome_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:text_size="25sp"
+            app:bg_color="@android:color/holo_blue_dark"
+            app:btn_text="Recommendations" />
+
     </LinearLayout>
 
 </RelativeLayout>
